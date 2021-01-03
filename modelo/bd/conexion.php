@@ -10,7 +10,7 @@ class Conexion{
     public function getConexion(){
         $mysql=new mysqli($this->host, $this->usuario, $this->password, $this->bd);
         if ($mysql->connect_error){
-            die("Error de conexión con la Base de Datos (".$mysql->connect_errno.")".$mysql->connect_errno);
+            die("Error de conexión con la Base de Datos (".$mysql->connect_errno.")".$mysql->connect_error);
         }            
         return $mysql;
     }
