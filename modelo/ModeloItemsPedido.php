@@ -9,26 +9,26 @@ class ModeloItemsPedido extends ModeloBase{
 
     public function insertaItemsPedido($itemsPedido){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("INSERT INTO items_pedido (id_pedido, id_item, cantidad) 
-        VALUES ('$itemsPedido->getId_pedido','$itemsPedido->getId_item','$itemsPedido->getCantidad')")){          
+        if ($result=parent::getLink()->query("INSERT INTO items_pedido (id_pedido, id_item, cantidad) 
+        VALUES ('".$itemsPedido->getId_pedido."','".$itemsPedido->getId_item."','".$itemsPedido->getCantidad."')")){          
           
            return $result;
 
         }else{ 
-            echo "Error: " . $result . "<br>" . mysqli_error($this->link);
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
     public function updateItemsPedido($itemsPedido){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("UPDATE items_pedido 
-                                        SET id_pedido='$itemsPedido->getId_pedido', 
-                                        SET id_item='$itemsPedido->getId_item', 
-                                        SET cantidad='$itemsPedido->getCantidad'
-                                        WHERE id='$itemsPedido->getId'")){ 
+        if ($result=parent::getLink()->query("UPDATE items_pedido 
+                                        SET id_pedido='".$itemsPedido->getId_pedido."', 
+                                        SET id_item='".$itemsPedido->getId_item."', 
+                                        SET cantidad='".$itemsPedido->getCantidad."'
+                                        WHERE id='".$itemsPedido->getId."'")){ 
             return $result;
 
         }else{ 
-            echo "Error: " . $result . "<br>" . mysqli_error($this->link);
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
     

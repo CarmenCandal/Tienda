@@ -1,5 +1,5 @@
 <?php
-    class CategoriaItem {
+    class Product {
         private $id;
         private $nombre;
         private $descripcion;

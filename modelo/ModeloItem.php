@@ -10,30 +10,31 @@ class ModeloItem extends ModeloBase{
 
     public function insertaItem($item){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("INSERT INTO item (id_categoria, id_nombre, descripcion, precio, color, talla) 
-        VALUES ('$item->getId_categoria()','$item->getId_nombre()','$item->getDescripcion()','$item->getPrecio()','$item->getColor()','$item->getTalla()')")){          
+        
+        if ($result=parent::getLink()->query("INSERT INTO item (id_categoria, id_nombre, descripcion, precio, color, talla) 
+        VALUES ('".$item->getId_categoria()."','".$item->getId_nombre()."','".$item->getDescripcion()."','".$item->getPrecio()."','".$item->getColor()."','".$item->getTalla()."')")){          
           
            return $result;
 
         }else{ 
-            echo "Error: " . $result . "<br>" . mysqli_error($this->link);
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
 
     public function updateItem($item){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("UPDATE item 
-                                        SET id_categoria='$item->getId_categoria()', 
-                                        SET id_nombre='$item->getId_nombre()', 
-                                        SET descripcion='$item->getDescripcion()', 
-                                        SET precio='$item->getPrecio()', 
-                                        SET color='$item->getColor()', 
-                                        SET talla='$item->getTalla()'
-                                        WHERE id='$item->getId()'")){ 
+        if ($result=parent::getLink()->query("UPDATE item 
+                                        SET id_categoria='".$item->getId_categoria()."', 
+                                        SET id_nombre='".$item->getId_nombre()."', 
+                                        SET descripcion='".$item->getDescripcion()."', 
+                                        SET precio='".$item->getPrecio()."', 
+                                        SET color='".$item->getColor()."', 
+                                        SET talla='".$item->getTalla()."'
+                                        WHERE id='".$item->getId()."'")){ 
             return $result;
 
         }else{ 
-            echo "Error: " . $result . "<br>" . mysqli_error($this->link);
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
 }

@@ -1,8 +1,3 @@
-<?php
-    echo "Llego a vista tienda";
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,21 +12,29 @@
 		<div class="container">
 
 			<h1>UnirShopping</h1>
-            <h2><?php echo "Usuario: ".$_SESSION['user'].". Perfil Usuario (Para Boton: admin/consulta pedidos): ".$_SESSION['rol']; ?><h2>
+			<h2>Tienda<h2>
+			<?php
+				if($_SESSION['rol']==1){
+					echo "<a href=\"index.php?controlador=ControladorAdmin&accion=consulta\">Administrador</a>";
+				}
+	        ?>
 
 		</div>
 	</header>
 	<div class="container">
 
 		<div class="row">
-            <?php foreach ($result as $categoria) { ?>
+			<?php foreach ($result as $product) 
+				{ 
+			?>
                 <div class="color2 col-md-3">
-                    <a href="index.php?controlador=ControladorTienda&accion=add(<?php echo $categoria->getId(); ?>)" class="thumbnail">
-                        <?php echo $categoria->getImg() ?>
-                        <!--<img src="img/clothes/Jeans.svg" alt="" width="200" height="200" title="Bootstrap">-->
+                    <a href="index.php?controlador=ControladorTienda&accion=add(<?php echo $product->getId(); ?>)" class="thumbnail">
+                        <?php echo $product->getImg() ?>                        
                     </a>	
                 </div>
-            <?php } ?>			
+			<?php 
+				} 
+			?>			
 		<div>
 	</div>
 		

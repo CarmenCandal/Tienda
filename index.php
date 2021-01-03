@@ -26,7 +26,12 @@ function cargarControlador($controlador){
 // Se ejecuta la acción.
 function cargarAccion($controllerObj,$_accion){
     $accion=$_accion;
-    $controllerObj->$accion();
+    if (isset($_GET["args"])){
+        $controllerObj->$accion($_GET["args"]);
+    }else{
+        $controllerObj->$accion();
+    }
+    
 }
  
 // Función que decide qué acción del controlador se va a ejecutar. Si recibe por GET el parámetro acción será ese el que ejecute

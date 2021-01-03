@@ -2,21 +2,21 @@
 // incluimos el modelo
 require_once ('modelo/ModeloItem.php');
 // incluimos el modelo
-require_once ('modelo/ModeloCategoriaItem.php');
+require_once ('modelo/ModeloProduct.php');
 
 
 class ControladorTienda extends ControladorBase{
     public $item_modelo;
-    public $categoria_item_modelo;
+    public $product_modelo;
 
     public function __construct(){
         $this->item_modelo= new ModeloItem(); 
-        $this->categoria_item_modelo= new ModeloCategoriaItem(); 
+        $this->product_modelo= new ModeloProduct(); 
     }
     public function accionXXXXX(){
         print_r($_SESSION);
         //Obtenemos todos los items
-        if (($result=$this->categoria_item_modelo->readAll())!=null)
+        if (($result=$this->product_modelo->readAll())!=null)
         {       // incluimos la vista        
                 require('vista/VistaTienda.php');
         }                           

@@ -1,6 +1,6 @@
 <?php
 require_once('bd/conexion.php');
-require_once('CategoriaItem.php');
+require_once('Product.php');
 require_once('Item.php');
 require_once('ItemsPedido.php');
 require_once('Pedido.php');
@@ -25,7 +25,6 @@ class ModeloBase{
         return $this->link;
     }
     public function readAll(){
-        echo "Tabla".$this->tabla;
         // La siguiente consulta devuelve un objeto mysqli_result
         if ($result=$this->link->query("SELECT * FROM $this->tabla ORDER BY id DESC")){          
             //Devolvemos un array de objetos

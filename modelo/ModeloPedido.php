@@ -8,27 +8,27 @@ class ModeloPedido extends ModeloBase{
     }
     public function insertaPedido($pedido){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("INSERT INTO pedido (id_usuario, fecha, total, estado) 
-        VALUES ('$pedido->getId_usuario()','$pedido->getFecha()','$pedido->getTotal()','$pedido->getEstado()')")){          
+        if ($result=parent::getLink()->query("INSERT INTO pedido (id_usuario, fecha, total, estado) 
+        VALUES ('".$pedido->getId_usuario()."','".$pedido->getFecha()."','".$pedido->getTotal()."','".$pedido->getEstado()."')")){          
           
            return $result;
 
         }else{ 
-            echo "Error: " . $result . "<br>" . mysqli_error($this->link);
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
     public function updatePedido($pedido){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("UPDATE pedido 
-                                        SET id_usuario='$pedido->getId_usuario()', 
-                                        SET fecha='$pedido->getFecha()', 
-                                        SET total='$pedido->getTotal()', 
-                                        SET estado='$pedido->getEstado()'
-                                        WHERE ID='$pedido->getId()'"){ 
+        if ($result=parent::getLink()->query("UPDATE pedido 
+                                        SET id_usuario='".$pedido->getId_usuario()."', 
+                                        SET fecha='".$pedido->getFecha()."', 
+                                        SET total='".$pedido->getTotal()."', 
+                                        SET estado='".$pedido->getEstado()."'
+                                        WHERE ID='".$pedido->getId()."'"){ 
             return $result;
 
         }else{ 
-            echo "Error: " . $result . "<br>" . mysqli_error($this->link);
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
     
