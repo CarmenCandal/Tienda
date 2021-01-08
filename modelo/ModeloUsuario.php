@@ -1,5 +1,5 @@
 <?php
-require_once ('ModeloBase.php');
+require_once('ModeloBase.php');
 require_once('Usuario.php');
 class ModeloUsuario extends ModeloBase{
     const TABLA = 'usuario';

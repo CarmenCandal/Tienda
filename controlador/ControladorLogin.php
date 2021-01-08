@@ -1,6 +1,6 @@
 <?php
 // incluimos el modelo
-require_once ('modelo/ModeloUsuario.php');
+require_once('modelo/ModeloUsuario.php');
 
 class ControladorLogin extends ControladorBase{
     public $user_model;
@@ -33,13 +33,15 @@ class ControladorLogin extends ControladorBase{
                 //echo "Obtenemos un resultado".$result->getRol();                
                 $_SESSION['user'] = $login;
                 $_SESSION['rol'] = $result->getRol();
+                $_SESSION['userId'] = $result->getId();
                 session_write_close();
-                $this->redirect("ControladorTienda", "accionXXXXX");
+                $this->redirect("ControladorTienda", "mostrarItems");
                
             }                           
             else{
                 unset($_SESSION['user']);
                 unset($_SESSION['rol']);
+                unset($_SESSION['userId']);
                 $this->view("VistaLogin",array(
                     "error"=>"Usuario o contraseña errónea"
                 ));
@@ -49,6 +51,7 @@ class ControladorLogin extends ControladorBase{
         {
             unset($_SESSION['user']);
             unset($_SESSION['rol']);
+            unset($_SESSION['userId']);
             $this->view("VistaLogin",array(
                 "error"=>"Error en conexión. Inténtelo más tarde"
             ));   

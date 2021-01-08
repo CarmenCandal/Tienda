@@ -1,8 +1,8 @@
 <?php
 // incluimos el modelo
-require_once ('modelo/ModeloItem.php');
+require_once('modelo/ModeloItem.php');
 // incluimos el modelo
-require_once ('modelo/ModeloProduct.php');
+require_once('modelo/ModeloProduct.php');
 
 
 class ControladorAdmin extends ControladorBase{
@@ -14,7 +14,6 @@ class ControladorAdmin extends ControladorBase{
         $this->products_modelo= new ModeloProduct(); 
     }
     public function delete($id){
-        print_r($_SESSION);
         //Obtenemos todos los items
         if (($resultDelete=$this->products_modelo->deleteById($id))!=null)
         {       

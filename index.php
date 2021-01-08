@@ -1,6 +1,7 @@
 <?php
 // Controlador y acción por defecto 
 define("CONTROLADOR_DEFECTO", "ControladorLogin");
+define("CONTROLADOR_DEFECTO_USER", "ControladorTienda");
 define("ACCION_DEFECTO", "login");
 
 session_start();
@@ -45,10 +46,14 @@ function lanzarAccion($controllerObj){
  
 //Cargamos controladores y acciones
 //Si llega el parámetro controlador lo cargamos, sino vamos al controlador por defecto
-if(isset($_GET["controlador"])){
+if (isset($_GET["controlador"])) {
     $controllerObj=cargarControlador($_GET["controlador"]);
     lanzarAccion($controllerObj);
-}else{
+} else if (isset($_SESSION["user"])) {
+    $controllerObj=cargarControlador(CONTROLADOR_DEFECTO_USER);
+    $_GET["accion"] = "mostrarItems";
+    lanzarAccion($controllerObj);
+} else {
     $controllerObj=cargarControlador(CONTROLADOR_DEFECTO);
     lanzarAccion($controllerObj);
 }

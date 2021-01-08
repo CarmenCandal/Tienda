@@ -1,13 +1,37 @@
 header {
 	background:#2c3e50;
 	color:#fff;
-	height: 300;
-
 }
 
 .main{
 	background: #f2f2f2;
+}
 
+body {
+	padding-top: 56px;
+}
+
+#cuerpoTienda {
+	padding-top: 5px;
+	padding-bottom: 50px;
+}
+
+#productImage {
+	width: 200px;
+	height: 200px;
+}
+
+#cuerpoLogin {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+#cuerpoAdmin {
+	padding-bottom: 25px;
+}
+
+#itemAdmin {
+	margin-top: 25px;
 }
 
 .color1 {
