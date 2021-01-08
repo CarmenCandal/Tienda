@@ -1,8 +1,6 @@
 <?php
-require_once ('ModeloBase.php');
-// incluimos el modelo
-require_once ('modelo/ModeloProduct.php');
-
+require_once('ModeloBase.php');
+require_once('Product.php');
 class ModeloProduct extends ModeloBase{
     const TABLA = "products";
     const OBJ="Product";

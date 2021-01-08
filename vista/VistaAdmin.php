@@ -8,30 +8,52 @@
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Panel Admin</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <h1>UnirShopping</h1>
-                <h2>Administración<h2>
-            </div>
-        </header>
-        <div class="container">
-        <?php if (isset($strResult) && $strResult != '') {echo "<div class=\"alert alert-info\">$strResult</div>";}?>
-        <br>
-        <h1>Panel Administrador</h1> <br><br>
-        <h1>Productos existentes</h1> <br>
-        <div>
+<head>
+    <title>Tienda online - Panel Admin</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.php?controlador=ControladorAdmin&accion=consulta">UnirShopping - Panel Administrador</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?controlador=ControladorTienda&accion=mostrarItems">Home
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.php?controlador=ControladorAdmin&accion=consulta">Administración
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+	
+	<!-- Page Content -->
+    
+    <div id="cuerpoAdmin" class="container">
+        <?php if (isset($strResult) && $strResult != '') {echo '<div id="itemAdmin" class="alert alert-info">'.$strResult.'</div>';}?>
+
+        <div id="itemAdmin" class="card">
+          <div class="card-header">
+            <h2>Productos existentes</h2>
+          </div>
+          <div class="card-body">
             <table class="table">
                 <thead class="thead-dark">
-                    <td><h4>ID PRODUCTO</h4></td>
-                    <td><h4>NOMBRE<h4></td>
-                    <td><h4><h4></td>
+                    <td><h6>ID PRODUCTO</h6></td>
+                    <td><h6>NOMBRE<h6></td>
+                    <td><h6>ACCION<h6></td>
                 </thead>
                 <tbody>
                     <?php
@@ -39,22 +61,25 @@
                     //while($fila = mysqli_fetch_array($result))
                     {
                     ?>
-                                <tr>
-                                    <td><?php echo filtrado($product->getId());?></td>
-                                    <td><?php echo filtrado($product->getNombre());?></td>
-                                    <td><a href="index.php?controlador=ControladorAdmin&accion=delete&args=<?php echo $product->getId();?>">Eliminar producto</a></td>                                    
-                                </tr>
+                        <tr>
+                            <td><?php echo filtrado($product->getId());?></td>
+                            <td><?php echo filtrado($product->getNombre());?></td>
+                            <td><a href="index.php?controlador=ControladorAdmin&accion=delete&args=<?php echo $product->getId();?>">Eliminar producto</a></td>                                    
+                        </tr>
                     <?php
                     }
                     ?>
                 </tbody>
             </table>
+          </div>
         </div>
 
-            <br><br>
-            <h1>Añadir nuevo producto</h1>
+        <div id="itemAdmin" class="card">
+            <div class="card-header">
+                <h2>Añadir nuevo producto</h2>
+            </div>
+            <div class="card-body">
                 <form action="index.php?controlador=ControladorAdmin&&accion=subir" class="formulario" id="formulario" name="formulario" method="POST">
-
                     <div class="form-group">
                         <h4><label for="exampleFormControlInput1">Tipo de producto</label></h4>
                         <input type="text" class="form-control" id="productname" name="nombre" placeholder="Ex: Pantalón" required>
@@ -180,9 +205,24 @@
                     <br><br>
                     <button type="submit" class="btn btn-primary" name="subir">subir</button>
                 </form>
+            </div>
+        </div>
 
-        </div>    
+    </div> 
+    <!-- /.container -->
 
-    </body>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Computación en Servidor Web - Actividad 2 - Grupo 1</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>   
+
+</body>
 </html>
 

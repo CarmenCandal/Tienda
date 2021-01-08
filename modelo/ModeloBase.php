@@ -36,7 +36,7 @@ class ModeloBase{
     }
     public function readById($id){
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=$this->link->query("SELECT * FROM this->$tabla WHERE id=$id")){
+        if ($result=$this->link->query("SELECT * FROM $this->tabla WHERE id=$id")){
             // Obtenemos el objeto correspondiente (usuario, item, rol...)
             return $result->fetch_object($this->obj);
         }

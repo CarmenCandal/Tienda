@@ -1,5 +1,5 @@
 <?php
-require_once ('ModeloBase.php');
+require_once('ModeloBase.php');
 class ModeloItem extends ModeloBase{
     const TABLA = "item";
     const OBJ="Item";
