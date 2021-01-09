@@ -31,5 +31,12 @@ class ModeloItemsPedido extends ModeloBase{
             echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
+
+    public function deleteByIdPedidoAndIdItem($idPedido, $idItem) {
+        // devolverá true si la consulta se ha realizado con éxito
+        if ($result=parent::getLink()->query("DELETE FROM items_pedido WHERE id_pedido='$idPedido' AND id_item='$idItem' LIMIT 1")){
+            return $result;
+        }
+    }
 }
 ?>
