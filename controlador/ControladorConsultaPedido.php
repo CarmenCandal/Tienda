@@ -25,9 +25,9 @@ class ControladorConsultaPedido extends ControladorBase
 
     public function obtenerPedido($idPedido)
     {
-
+        
         if(isset($idPedido)) {
-
+            $imgs = array();
             $carrito = $this->pedidoRepository->readById($idPedido);
 
             //Obtenemos los items del carrito
@@ -44,7 +44,8 @@ class ControladorConsultaPedido extends ControladorBase
             }
             $_SESSION['pedidoActual'] = $itemsCarrito;
             $_SESSION['idPedidoActual'] = $idPedido;
-            $_SESSION['imgs'] = $imgs;
+            $_SESSION['imgsPedidoActual'] = $imgs;
+           
         }
 
         //Antes de cargar la vista obtenemos de nuevo la info de pedidos
@@ -64,7 +65,7 @@ class ControladorConsultaPedido extends ControladorBase
 
         $imgs = array();
         $idUsuario = $_SESSION['userId'];
-       
+        
 
         //Obtenemos los pedidos
         $pedidosCompletados = $this->pedidoRepository->getPedidosCompletados($idUsuario);
@@ -74,11 +75,10 @@ class ControladorConsultaPedido extends ControladorBase
         } else {
             $_SESSION['pedidosCompletados'] = null;
         }
-
+        //Si no se ha vaciado el carrito (o bien por confirmación o por eliminación de carrito)
         if(isset($_SESSION['idPedido'])) {
             $idPedidoCarrito = $_SESSION['idPedido'];
             $carrito = $this->pedidoRepository->readById($idPedidoCarrito);
-
             //Obtenemos los items del carrito
             $itemsCarrito = array();
             $i = 0;

@@ -68,8 +68,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($result as $product)
-                    //while($fila = mysqli_fetch_array($result))
+                        foreach ($result as $product)                   
                     {
                     ?>
                         <tr>

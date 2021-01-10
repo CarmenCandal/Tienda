@@ -67,9 +67,10 @@ class ModeloPedido extends ModeloBase {
             // Devolvemos la lista de objetos que cumplen con la condición
             while($row = $result->fetch_object("Pedido")) {
                 $resultSet[]=$row;
-                return $resultSet;
+                
             }
-           
+            if (sizeOf($resultSet)>0) return $resultSet;
+            else return null;
         } else {
             echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }

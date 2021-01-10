@@ -120,6 +120,13 @@
                 </div>
                 <?php
             }
+        }else{
+            ?>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                <h5>Carrito vacío</h5>                  
+                </div>
+            <?php
         }
         ?>
 
@@ -140,11 +147,11 @@
                                 echo "Pedido #" . $idPedidoAct;
                             else
                                 echo "Selecciona un pedido...";
-                         }
+                         }else
+                            echo "Selecciona un pedido...";
                         ?>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
                         <?php
                         if(isset($_SESSION['pedidosCompletados'])) {
                             $pedidos = $_SESSION['pedidosCompletados'];
@@ -168,7 +175,7 @@
 
         <?php
         
-        $imgs = $_SESSION['imgs'];
+        $imgs = $_SESSION['imgsPedidoActual'];
         if(isset($_SESSION['pedidoActual'])) {
             $pedidoActual = $_SESSION['pedidoActual'];
             foreach ($pedidoActual as $item) {
