@@ -114,6 +114,7 @@ class ControladorConsultaPedido extends ControladorBase
             $this->itemsPedidoRepository->deleteByIdPedidoAndIdItem($pedido->getId(), $item->getId());
 
             if ($_SESSION["numItemsPedido"] == 0) {
+                $this->eliminarPedidoCarrito();
                 $this->limpiarCarrito();
             }
         }
@@ -133,15 +134,17 @@ class ControladorConsultaPedido extends ControladorBase
     }
 
     public function vaciarCarrito() {
-
+        $this->eliminarPedidoCarrito();
         $this->limpiarCarrito();
         $this->obtenerPedidos();
     }
 
-    private function limpiarCarrito() {
-
+    private function eliminarPedidoCarrito() {
         $idPedidoCarrito = $_SESSION['idPedido'];
         $this->pedidoRepository->deleteById($idPedidoCarrito);
+    }
+
+    private function limpiarCarrito() {
 
         unset($_SESSION['idPedido']);
         unset($_SESSION['numItemsPedido']);
