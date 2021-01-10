@@ -36,7 +36,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-secondary" onclick="location.href='index.php?controlador=ControladorConsultaPedido'" >
+            <button type="button" class="btn btn-secondary" onclick="location.href='index.php?controlador=ControladorConsultaPedido&accion=obtenerPedidos'" >
               <img src="img/cart.svg"> Carrito<?php if (isset($_SESSION["idPedido"])) echo "(".$_SESSION["numItemsPedido"].") - ".$_SESSION["totalPedido"].'€' ?>
             </button>
             </a>

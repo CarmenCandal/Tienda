@@ -45,7 +45,7 @@ class ModeloBase{
         // La siguiente consulta devuelve un objeto mysqli_result
         if ($result=$this->link->query("SELECT * FROM $this->tabla WHERE $column='$value'")){
             // Devolvemos la lista de objetos que cumplen con la condición
-            while($row = $query->fetch_object($this->obj)) {
+            while($row = $result->fetch_object($this->obj)) {
                 $resultSet[]=$row;
             }            
             return $resultSet;

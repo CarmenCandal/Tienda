@@ -99,6 +99,12 @@ class ControladorTienda extends ControladorBase {
         unset($_SESSION['idPedido']);
         unset($_SESSION["numItemsPedido"]);
         unset($_SESSION["totalPedido"]);
+        unset($_SESSION['idPedido']);
+        unset($_SESSION['numItemsPedido']);
+        unset($_SESSION['totalPedido']);
+        unset($_SESSION['carrito']);
+        unset($_SESSION['pedidoActual']);
+        unset($_SESSION['idPedidoActual']);
         require('vista/VistaLogin.php');
     }
 }

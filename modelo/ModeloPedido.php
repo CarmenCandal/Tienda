@@ -32,15 +32,10 @@ class ModeloPedido extends ModeloBase {
 
     public function updatePedido($pedido) {
         // La siguiente consulta devuelve un objeto mysqli_result
-        if ($result=parent::getLink()->query("UPDATE pedido 
-                                        SET id_usuario=".$pedido->getId_usuario().", 
-                                        SET fecha='".$pedido->getFecha()."', 
-                                        SET total=".$pedido->getTotal().", 
-                                        SET estado='".$pedido->getEstado()."'
-                                        WHERE ID=".$pedido->getId()))
+        if ($result=parent::getLink()->query("UPDATE pedido SET estado='".$pedido->getEstado()."' WHERE ID='".$pedido->getId()."'"))
         { 
             return $result;
-        } else { 
+        } else {
             echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
@@ -51,6 +46,30 @@ class ModeloPedido extends ModeloBase {
         { 
             return $result;
         } else { 
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
+        }
+    }
+
+    public function getPedidosCompletados($idUsuario) {
+        // La siguiente consulta devuelve un objeto mysqli_result
+        if ($result=parent::getLink()->query("SELECT * FROM pedido WHERE id_usuario=$idUsuario AND estado='Completado'"))
+        {
+            // Devolvemos la lista de objetos que cumplen con la condición
+            while($row = $result->fetch_object("Pedido")) {
+                $resultSet[]=$row;
+            }
+            return $resultSet;
+        } else {
+            echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
+        }
+    }
+
+    public function getCarrito($idUsuario) {
+        // La siguiente consulta devuelve un objeto mysqli_result
+        if ($result=parent::getLink()->query("SELECT * FROM pedido WHERE estado='Pendiente' AND id_usuario=$idUsuario"))
+        {
+            return $result;
+        } else {
             echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }
     }
