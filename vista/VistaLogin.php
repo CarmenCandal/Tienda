@@ -1,3 +1,17 @@
+<?php
+/**
+ * Página php con la vista de la pantalla de login. 
+ * 
+ * Vista para la validación del usuario
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 

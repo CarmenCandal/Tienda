@@ -1,4 +1,16 @@
 <?php
+/**
+ * Controlador para el manejo de la tienda
+ * Clase php que hereda de ControladorBase añadiendo funcionalidad concreta para el manejo de la tienda
+ * Recibe los eventos que se producen en la vista de la tienda (pantalla principal), los gestiona y realiza las peticiones correspondientes 
+ * a los modelos de producto, item, pedido e items del pedido.
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
+
 // incluimos modelos
 require_once('modelo/ModeloItem.php');
 require_once('modelo/ModeloProduct.php');
@@ -19,6 +31,7 @@ class ControladorTienda extends ControladorBase {
         $this->itemsPedido_modelo = new ModeloItemsPedido();
     }
 
+    //Operación de muestra de todos los productos, el usuario debe estar auténticado
     public function mostrarItems() {
         if (!isset($_SESSION["user"]) || !isset($_SESSION["rol"])) {
             require('vista/VistaLogin.php');
@@ -43,6 +56,8 @@ class ControladorTienda extends ControladorBase {
         }
     }
 
+    // Operación que muestra los productos filtrados según la categoría a la que pertenezcan
+    // categoriaId: Identificador de la categoría del producto por el que se quiere filtrar
     public function filter($categoriaId) {
         if (!isset($categoriaId)) return;
 
@@ -52,6 +67,8 @@ class ControladorTienda extends ControladorBase {
         $this->mostrarItems();
     }
 
+     // Operación que añade un item al pedido
+     // idItem: Identificador del item que se quiere añadir al pedido
     public function add($idItem) {
         if (!isset($idItem)) return;
 
@@ -91,6 +108,7 @@ class ControladorTienda extends ControladorBase {
         $this->mostrarItems();
     }
 
+    //Operación de cierre de sesión
     public function cerrarSesion() {
         unset($_SESSION["user"]);
         unset($_SESSION["rol"]);

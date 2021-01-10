@@ -1,4 +1,15 @@
 <?php
+<?php
+/**
+ * Gestión de categorías de producto
+ *
+ * Página php que hereda de ModeloBase añadiendo funcionalidad concreta para el manejo de la clase Product
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
 require_once('ModeloBase.php');
 require_once('Product.php');
 class ModeloProduct extends ModeloBase{

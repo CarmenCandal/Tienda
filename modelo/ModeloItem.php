@@ -1,4 +1,14 @@
 <?php
+/**
+ * Gestión de item concreto
+ *
+ * Clase php que hereda de ModeloBase añadiendo funcionalidad concreta para el manejo de la clase Item
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
 require_once('ModeloBase.php');
 class ModeloItem extends ModeloBase{
     const TABLA = "item";

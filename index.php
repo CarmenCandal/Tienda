@@ -1,4 +1,14 @@
 <?php
+/**
+ * Página php principal. 
+ * 
+ * Se definen las funciones principales para manejo de controladores y vistas
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
 // Controlador y acción por defecto 
 define("CONTROLADOR_DEFECTO", "ControladorLogin");
 define("CONTROLADOR_DEFECTO_USER", "ControladorTienda");

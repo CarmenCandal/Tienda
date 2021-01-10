@@ -1,4 +1,15 @@
 <?php
+/**
+ * Página php con la clase Item
+ * 
+ * Cada una de las posibles productos pertenecientes a una categoría de producto que se pueden comprar, 
+ * se corresponde con la tabla Item de la Base de Datos. Será manejado por la clase ModeloItem
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
     class Item{
         private $id;
         private $id_categoria;

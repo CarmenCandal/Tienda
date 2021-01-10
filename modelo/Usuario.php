@@ -1,4 +1,16 @@
 <?php
+
+    /**
+     * Página php con la clase Usuario
+     * 
+     * Estructura Usuario, se corresponde con la tabla Usuario de la Base de Datos. Será manejado por la clase ModeloUsuario
+     * 
+     * @author Gerard Herrera Sague
+     * @author Paul Morrison Aguiar
+     * @author Jesús Pérez Melero
+     * @author Carmen María Candal alonso
+     */
+
     class Usuario{
         private $id;
         private $id_rol;

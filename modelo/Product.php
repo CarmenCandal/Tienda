@@ -1,4 +1,15 @@
 <?php
+/**
+ * Página php con la clase Product
+ * 
+ * Estructura del tipo de producto o categoría, se corresponde con la tabla Product de la Base de Datos. 
+ * Será manejado por la clase ModeloProduct
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
     class Product {
         private $id;
         private $nombre;

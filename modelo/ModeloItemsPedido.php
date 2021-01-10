@@ -1,4 +1,14 @@
 <?php
+/**
+ * Gestión de la lista de items del pedido
+ *
+ * Página php que hereda de ModeloBase añadiendo funcionalidad concreta para el manejo de la clase ItemsPedido
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
 require_once('ModeloBase.php');
 class ModeloItemsPedido extends ModeloBase{
     const TABLA = "items_pedido";

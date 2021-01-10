@@ -1,4 +1,16 @@
 <?php
+/**
+ * Clase de la que heredan el resto de modelos
+ *
+ * Se realiza la conexión y se especifican aquellas funciones que son genéricas a todas las tablas, como son la lectura o el borrado.
+ * El constructor recibe como parámetros la tabla y el objeto en el que se cargarán los elementos de la tabla. De esta forma podemos 
+ * hacer uso de la función fetch_object para que el resultado se devuelva ya parseado al objeto correspondiente. 
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
 require_once('bd/conexion.php');
 require_once('Product.php');
 require_once('Item.php');
