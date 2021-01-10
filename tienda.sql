@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generaci�n: 03-01-2021 a las 11:47:58
--- Versi�n del servidor: 10.4.14-MariaDB
--- Versi�n de PHP: 7.2.34
+-- Tiempo de generación: 10-01-2021 a las 20:25:54
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`, `color`, `talla`) VALUES
-(1, 1, 'Pantalón Levis', 'Pantal�n Vaquero Levis slim fit', 29.95, 'azul', '40'),
+(1, 1, 'Pantalón Levis', 'Pantalón Vaquero Levis slim fit', 29.95, 'azul', '40'),
 (2, 2, 'Vestido Sfera', 'Vestido Largo tirantes estampado', 15.95, 'verde', '38'),
 (3, 3, 'Camiseta Tommy Hilfiger', 'Camiseta Tommy Hilfiger 100% algodón orgánico', 24.95, 'blanco', 'L');
 
@@ -61,6 +61,29 @@ CREATE TABLE `items_pedido` (
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `items_pedido`
+--
+
+INSERT INTO `items_pedido` (`id`, `id_pedido`, `id_item`, `cantidad`) VALUES
+(9, 5, 3, 1),
+(10, 5, 2, 1),
+(11, 6, 1, 1),
+(12, 7, 2, 1),
+(13, 8, 1, 1),
+(14, 9, 3, 1),
+(15, 9, 3, 1),
+(18, 11, 3, 1),
+(19, 11, 3, 1),
+(28, 18, 2, 1),
+(29, 18, 2, 1),
+(32, 20, 3, 1),
+(33, 20, 2, 1),
+(34, 20, 1, 1),
+(35, 21, 3, 1),
+(36, 21, 2, 1),
+(37, 21, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +97,21 @@ CREATE TABLE `pedido` (
   `total` float NOT NULL,
   `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `id_usuario`, `fecha`, `total`, `estado`) VALUES
+(5, 1, '2021-01-10', 40.9, 'Completado'),
+(6, 1, '2021-01-10', 29.95, 'Completado'),
+(7, 1, '2021-01-10', 15.95, 'Completado'),
+(8, 1, '2021-01-10', 29.95, 'Completado'),
+(9, 1, '2021-01-10', 49.9, 'Completado'),
+(11, 1, '2021-01-10', 49.9, 'Completado'),
+(18, 1, '2021-01-10', 31.9, 'Pendiente'),
+(20, 1, '2021-01-10', 70.85, 'Completado'),
+(21, 1, '2021-01-10', 70.85, 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -150,10 +188,11 @@ INSERT INTO `usuario` (`id`, `id_rol`, `login`, `pwd`, `tipo_usuario`, `email`, 
 (2, 1, 'gerard', 'gerard', 0, 'gerardherrerasague@gmail.com', 'Gerard', 'Herrera', 'Sague', 'Berlin', '622076464'),
 (3, 2, 'paul', 'paul', 0, 'p.morrison.a@gmail.com', 'Paul', 'Morrison', 'Aguiar', 'Tenerife', '646897632'),
 (4, 2, 'jesus', 'jesus', 0, 'jesusperezmelero@gmail.com', 'Jesus', 'Perez', 'Melero', 'Madrid', '123456789'),
-(5, 1, 'admin', 'admin', 0, 'admin@gmail.com', 'Admin', 'Admin', 'Admin', 'Madrid', '123456789');
+(5, 1, 'admin', 'admin', 0, 'admin@gmail.com', 'Admin', 'Admin', 'Admin', 'Madrid', '123456789'),
+(6, 2, 'user', 'user', 0, 'user@gmail.com', 'User', 'User', 'User', 'Madrid', '123456789');
 
 --
--- �ndices para tablas volcadas
+-- Índices para tablas volcadas
 --
 
 --
@@ -208,18 +247,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `pedido`
---
-ALTER TABLE `pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-
---
 -- AUTO_INCREMENT de la tabla `item`
 --
 ALTER TABLE `item`
@@ -229,7 +256,19 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT de la tabla `items_pedido`
 --
 ALTER TABLE `items_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de la tabla `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
