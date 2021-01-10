@@ -1,4 +1,15 @@
 <?php
+ /**
+  * Gestión de Usuario
+  *
+  * Página php que hereda de ModeloBase añadiendo funcionalidad concreta para el manejo de la clase Usuario
+  * 
+  * @author Gerard Herrera Sague
+  * @author Paul Morrison Aguiar
+  * @author Jesús Pérez Melero
+  * @author Carmen María Candal alonso
+ */
+
 require_once('ModeloBase.php');
 require_once('Usuario.php');
 class ModeloUsuario extends ModeloBase{

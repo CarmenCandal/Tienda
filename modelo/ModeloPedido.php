@@ -1,4 +1,14 @@
 <?php
+/**
+ * Gestión del pedido
+ *
+ * Página php que hereda de ModeloBase añadiendo funcionalidad concreta para el manejo de la clase Pedido
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
 require_once('ModeloBase.php');
 class ModeloPedido extends ModeloBase {
     const TABLA = "pedido";
@@ -57,8 +67,9 @@ class ModeloPedido extends ModeloBase {
             // Devolvemos la lista de objetos que cumplen con la condición
             while($row = $result->fetch_object("Pedido")) {
                 $resultSet[]=$row;
+                return $resultSet;
             }
-            return $resultSet;
+           
         } else {
             echo "Error: " . $result . "<br>" . mysqli_error(parent::getLink());
         }

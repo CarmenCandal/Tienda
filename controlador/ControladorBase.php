@@ -1,5 +1,15 @@
 <?php
-    // Clase padre de los controladores donde se definen las funciones comunes
+
+
+/**
+ * Clase padre de los controladores donde se definen las funciones comunes
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+*/
+   
    class ControladorBase{
         public function __construct(){
            //Incluir todos los modelos

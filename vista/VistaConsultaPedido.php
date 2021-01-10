@@ -1,3 +1,16 @@
+
+<?php
+/**
+ * Página php con la vista para la consulta de la cesta y realización del pedido. 
+ * 
+ * Vista se presentan los productos de la cesta y los pedidos anteriormente realizados.
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
+?>
 <!DOCTYPE html>
 
 <html>
@@ -81,10 +94,12 @@
     <div class="row">
 
         <?php
-        $carrito = $_SESSION['carrito'];
+
+        
         $imgs = $_SESSION['imgs'];
-        if(isset($carrito)) {
-        foreach ($carrito as $item) {
+        if(isset($_SESSION['carrito'])) {
+            $carrito = $_SESSION['carrito'];
+            foreach ($carrito as $item) {
                 ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
@@ -104,7 +119,7 @@
                     </div>
                 </div>
                 <?php
-        }
+            }
         }
         ?>
 
@@ -119,24 +134,27 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php
-                        $idPedidoAct = $_SESSION['idPedidoActual'];
-                        if (isset($idPedidoAct))
-                            echo "Pedido #" . $idPedidoAct;
-                        else
-                            echo "Selecciona un pedido...";
+                         if(isset($_SESSION['idPedidoActual'])) {
+                            $idPedidoAct = $_SESSION['idPedidoActual'];
+                            if (isset($idPedidoAct))
+                                echo "Pedido #" . $idPedidoAct;
+                            else
+                                echo "Selecciona un pedido...";
+                         }
                         ?>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         <?php
-
-                        $pedidos = $_SESSION['pedidosCompletados'];
-                        if (!is_null($pedidos)) {
-                            foreach ($pedidos as $pedido) {
-                                echo "<a class=\"dropdown-item\" href=index.php?controlador=ControladorConsultaPedido&&accion=obtenerPedido&args=" . $pedido->getId() . " \">Pedido #" . $pedido->getId() . "</a>";
+                        if(isset($_SESSION['pedidosCompletados'])) {
+                            $pedidos = $_SESSION['pedidosCompletados'];
+                            if (!is_null($pedidos)) {
+                                foreach ($pedidos as $pedido) {
+                                    echo "<a class=\"dropdown-item\" href=index.php?controlador=ControladorConsultaPedido&&accion=obtenerPedido&args=" . $pedido->getId() . " \">Pedido #" . $pedido->getId() . "</a>";
+                                }
+                            } else {
+                                echo "No hay pedidos ";
                             }
-                        } else {
-                            echo "No hay pedidos ";
                         }
                         ?>
                     </div>
@@ -149,9 +167,10 @@
     <div class="row">
 
         <?php
-        $pedidoActual = $_SESSION['pedidoActual'];
+        
         $imgs = $_SESSION['imgs'];
-        if(isset($pedidoActual)) {
+        if(isset($_SESSION['pedidoActual'])) {
+            $pedidoActual = $_SESSION['pedidoActual'];
             foreach ($pedidoActual as $item) {
                 ?>
                 <div class="col-lg-4 col-md-6 mb-4">

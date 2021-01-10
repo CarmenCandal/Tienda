@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Página php con la gestión de productos. 
+ * 
+ * Vista en la que se presentan las categorías de productos existentes permitiendo eliminar o crear una nueva categoría.
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
     function filtrado($datos){
         $datos = trim($datos); // Elimina espacios antes y después de los datos
         $datos = stripslashes($datos); // Elimina backslashes \

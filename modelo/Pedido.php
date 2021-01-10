@@ -1,4 +1,14 @@
 <?php
+/**
+ * Página php con la clase Pedido
+ * 
+ * Estructura del Pedido de un usuario, se corresponde con la tabla Pedido de la Base de Datos. Será manejado por la clase ModeloPedido
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
     class Pedido{
         private $id;
         private $id_usuario;

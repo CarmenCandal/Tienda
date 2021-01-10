@@ -1,3 +1,15 @@
+<?php
+/**
+ * Página php con la vista de la tienda. 
+ * 
+ * Vista principal donde se presentan los productos de la tienda clasificados por tipos
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
+?>
 <!DOCTYPE html>
 <html lang="es">
 

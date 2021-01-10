@@ -1,4 +1,15 @@
 <?php
+/**
+ * Página php con la clase ItemsPedido
+ * 
+ * Cada elemento de la lista de la compra, 
+ * se corresponde con la tabla ItemsPedido de la Base de Datos. Será manejado por la clase ModeloItemsPedido
+ * 
+ * @author Gerard Herrera Sague
+ * @author Paul Morrison Aguiar
+ * @author Jesús Pérez Melero
+ * @author Carmen María Candal alonso
+ */
     class ItemsPedido{
         private $id;
         private $id_pedido;
