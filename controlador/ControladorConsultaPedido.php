@@ -112,6 +112,10 @@ class ControladorConsultaPedido extends ControladorBase
 
             echo $pedido->getId() . "-" . $item->getId();
             $this->itemsPedidoRepository->deleteByIdPedidoAndIdItem($pedido->getId(), $item->getId());
+
+            if ($_SESSION["numItemsPedido"] == 0) {
+                $this->limpiarCarrito();
+            }
         }
 
         $this->obtenerPedidos();
@@ -132,12 +136,13 @@ class ControladorConsultaPedido extends ControladorBase
 
         $this->limpiarCarrito();
         $this->obtenerPedidos();
-
-        $idPedidoCarrito = $_SESSION['idPedido'];
-        $this->pedidoRepository->deleteById($idPedidoCarrito);
     }
 
     private function limpiarCarrito() {
+
+        $idPedidoCarrito = $_SESSION['idPedido'];
+        $this->pedidoRepository->deleteById($idPedidoCarrito);
+
         unset($_SESSION['idPedido']);
         unset($_SESSION['numItemsPedido']);
         unset($_SESSION['totalPedido']);
