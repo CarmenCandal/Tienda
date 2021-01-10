@@ -83,7 +83,7 @@
         <div class="row">
 
         <?php foreach ($items as $item)
-          if (!isset($_SESSION["filtroId"]) || $_SESSION["filtroId"] == $item->getId_categoria()) {
+          if (!isset($_SESSION["filtroId"]) || $_SESSION["filtroId"] == $item->getId_categoria()) {            
         ?>
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">

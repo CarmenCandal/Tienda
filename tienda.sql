@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2021 a las 11:47:58
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.2.34
+-- Tiempo de generaciï¿½n: 03-01-2021 a las 11:47:58
+-- Versiï¿½n del servidor: 10.4.14-MariaDB
+-- Versiï¿½n de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,9 +44,9 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`, `color`, `talla`) VALUES
-(1, 1, 'Pantalón Levis', 'Pantalón Vaquero Levis slim fit', 29.95, 'azul', '40'),
+(1, 1, 'PantalÃ³n Levis', 'Pantalï¿½n Vaquero Levis slim fit', 29.95, 'azul', '40'),
 (2, 2, 'Vestido Sfera', 'Vestido Largo tirantes estampado', 15.95, 'verde', '38'),
-(3, 3, 'Camiseta Tommy Hilfiger', 'Camiseta Tommy Hilfiger 100% algodón orgánico', 24.95, 'blanco', 'L');
+(3, 3, 'Camiseta Tommy Hilfiger', 'Camiseta Tommy Hilfiger 100% algodÃ³n orgÃ¡nico', 24.95, 'blanco', 'L');
 
 -- --------------------------------------------------------
 
@@ -96,10 +96,10 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `nombre`, `descripcion`, `tallas_disponibles`, `colores_disponibles`, `img`) VALUES
 (1, 'Pantalones', 'Pantalones Vaqueros', '36|38|40|42|44|48', 'azul|azul claro|azul oscuro|negro|gris', 'Jeans.svg'),
-(2, 'Vestido', 'Vestido de mujer', '36|38|40|42|44|48', 'rojo|verde|amarillo', 'Woman’s Dress.svg'),
+(2, 'Vestido', 'Vestido de mujer', '36|38|40|42|44|48', 'rojo|verde|amarillo', 'Womanâ€™s Dress.svg'),
 (3, 'Camisetas', 'Camisetas de manga corta', 'XS|S|M|L|XL|XXL|XXXL', 'rojo|verde|amarillo', 'T-Shirt.svg'),
 (4, 'Sudaderas', 'Sudaderas unisex', 'XS|S|M|L|XL|XXL|XXXL', 'azul|rojo|verde|amarillo|granate', 'Hoodie.svg'),
-(12, 'Camisa', 'Camisa', '[\"44\",\"48\"]', '[\"azul\",\"azul claro\",\"azul oscuro\"]', 'Men’s Shirt.svg');
+(5, 'Camisa', 'Camisa', '[\"44\",\"48\"]', '[\"azul\",\"azul claro\",\"azul oscuro\"]', 'Men\'s Shirt.svg');
 
 -- --------------------------------------------------------
 
@@ -149,10 +149,11 @@ INSERT INTO `usuario` (`id`, `id_rol`, `login`, `pwd`, `tipo_usuario`, `email`, 
 (1, 1, 'carmen', 'carmen', 0, 'carmen@correo.com', 'Carmen', 'Candal', 'Alonso', 'Direccion', '555555555'),
 (2, 1, 'gerard', 'gerard', 0, 'gerardherrerasague@gmail.com', 'Gerard', 'Herrera', 'Sague', 'Berlin', '622076464'),
 (3, 2, 'paul', 'paul', 0, 'p.morrison.a@gmail.com', 'Paul', 'Morrison', 'Aguiar', 'Tenerife', '646897632'),
-(4, 2, 'jesus', 'jesus', 0, 'jesusperezmelero@gmail.com', 'Jesus', 'Perez', 'Melero', 'Madrid', '123456789');
+(4, 2, 'jesus', 'jesus', 0, 'jesusperezmelero@gmail.com', 'Jesus', 'Perez', 'Melero', 'Madrid', '123456789'),
+(5, 1, 'admin', 'admin', 0, 'admin@gmail.com', 'Admin', 'Admin', 'Admin', 'Madrid', '123456789');
 
 --
--- Índices para tablas volcadas
+-- ï¿½ndices para tablas volcadas
 --
 
 --
@@ -176,6 +177,7 @@ ALTER TABLE `items_pedido`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ID` (`id`),
   ADD KEY `ID_USUARIO` (`id_usuario`);
 
 --
@@ -209,25 +211,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT de la tabla `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `items_pedido`
 --
 ALTER TABLE `items_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Restricciones para tablas volcadas

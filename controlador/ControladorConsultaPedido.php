@@ -64,7 +64,7 @@ class ControladorConsultaPedido extends ControladorBase
 
         $imgs = array();
         $idUsuario = $_SESSION['userId'];
-        $idPedidoCarrito = $_SESSION['idPedido'];
+       
 
         //Obtenemos los pedidos
         $pedidosCompletados = $this->pedidoRepository->getPedidosCompletados($idUsuario);
@@ -75,8 +75,8 @@ class ControladorConsultaPedido extends ControladorBase
             $_SESSION['pedidosCompletados'] = null;
         }
 
-        if(isset($idPedidoCarrito)) {
-
+        if(isset($_SESSION['idPedido'])) {
+            $idPedidoCarrito = $_SESSION['idPedido'];
             $carrito = $this->pedidoRepository->readById($idPedidoCarrito);
 
             //Obtenemos los items del carrito

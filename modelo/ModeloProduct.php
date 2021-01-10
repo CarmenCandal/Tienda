@@ -1,5 +1,4 @@
 <?php
-<?php
 /**
  * Gestión de categorías de producto
  *
